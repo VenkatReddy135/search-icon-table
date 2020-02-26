@@ -1,0 +1,31 @@
+<div class="container">
+    <h1 style="padding-left:520px;color:rgb(10, 3, 10)">Table</h1>
+<!--     
+    <input class="form-control"  style="margin:auto;max-width:300px" placeholder="--------SEARCH-BY-CAPITAL---------"  type="text"  [(ngModel)]="dataFilter.capital"> 
+    <span><button class="btn btn-secondary" type="button">
+        <i class="fa fa-search"></i>
+      </button></span> -->
+
+      <div class="form-group has-search"  style="margin:auto;max-width:300px">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text"   class="form-control" [(ngModel)]="dataFilter.capital" placeholder="Search">
+      </div>
+    <br>
+
+<table style="text-align:center;background-color: white"  class="table table-bordered" >
+
+    <tr>
+        <th style="color:tomato">NAME</th>
+        <th style="color:tomato">CAPITAL</th>
+        <th style="color:tomato">CURRENCIES</th>
+    </tr>
+   <tr *ngFor="let employ of Employees|filterBy:dataFilter">
+       <td>{{employ.name}}</td>
+       <td>{{employ.capital}}</td>
+       <td> <span *ngFor="let n of employ.currencies">{{n.name}}</span></td>
+   </tr>
+</table>
+</div>
+
+
+  
